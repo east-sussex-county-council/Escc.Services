@@ -1,7 +1,7 @@
 Escc.Services
 =============
 
-A service locator and basic implementations of common services used by applications, such as email. 
+A service container and basic implementations of common services used by applications, such as email. 
 
 A [NuBuild](https://github.com/bspell1/NuBuild) project is used to create the NuGet package.
 
@@ -16,7 +16,7 @@ In this example configuration settings come from web.config or app.config, but t
 	var configuration = new ConfigurationServiceRegistry();
 	var cache = new HttpContextCacheStrategy();
 
-	var emailService = ServiceLocator.EmailService(configuration, cache);
+	var emailService = ServiceContainer.LoadService<IEmailService>(configuration, cache);
 
     emailService.Send(email); 
 
@@ -25,14 +25,14 @@ In this example configuration settings come from web.config or app.config, but t
 	<configuration>
 	  <configSections>
 	    <sectionGroup name="Escc.Services">
-	      <section name="ServiceLocator" type="System.Configuration.NameValueSectionHandler, System, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	      <section name="ServiceRegistry" type="System.Configuration.NameValueSectionHandler, System, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
 	    </sectionGroup>
 	  </configSections>
 	  
 	  <Escc.Services>
-	    <ServiceLocator>
+	    <ServiceRegistry>
 	      <add key="Escc.Services.IEmailSender" value="Escc.Services.SmtpEmailSender, Escc.Services" />
-	    </ServiceLocator>
+	    </ServiceRegistry>
 	  </Escc.Services>
 	
 	 <system.net>

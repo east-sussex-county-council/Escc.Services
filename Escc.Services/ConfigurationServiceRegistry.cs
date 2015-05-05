@@ -21,7 +21,7 @@ namespace Escc.Services
         /// <exception cref="System.Configuration.ConfigurationErrorsException"></exception>
         public string ReadTypeNameForInterface(Type interfaceType)
         {
-            var config = ConfigurationManager.GetSection("Escc.Services/ServiceLocator") as NameValueCollection;
+            var config = ConfigurationManager.GetSection("Escc.Services/ServiceRegistry") as NameValueCollection;
             if (config == null || String.IsNullOrEmpty(config[interfaceType.ToString()]))
             {
                 throw new ConfigurationErrorsException(interfaceType + " has not been configured in web.config");

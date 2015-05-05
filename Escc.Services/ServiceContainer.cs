@@ -10,19 +10,8 @@ namespace Escc.Services
     /// <summary>
     /// Load common services used by applications
     /// </summary>
-    public static class ServiceLocator
+    public static class ServiceContainer
     {
-        /// <summary>
-        /// Loads the email service.
-        /// </summary>
-        /// <param name="serviceRegistry">Where to find the service</param>
-        /// <param name="cacheStrategy">How to cache the service instance, if at all</param>
-        /// <returns></returns>
-        public static IEmailSender EmailService(IServiceRegistry serviceRegistry, IServiceCacheStrategy cacheStrategy = null)
-        {
-            return LoadService<IEmailSender>(serviceRegistry, cacheStrategy);
-        }
-
         /// <summary>
         /// Loads a service based on its interface type
         /// </summary>
@@ -30,7 +19,7 @@ namespace Escc.Services
         /// <param name="serviceRegistry">Where to find the service</param>
         /// <param name="cacheStrategy">How to cache the service instance, if at all</param>
         /// <returns>An instance of the service</returns>
-        private static T LoadService<T>(IServiceRegistry serviceRegistry, IServiceCacheStrategy cacheStrategy)
+        public static T LoadService<T>(IServiceRegistry serviceRegistry, IServiceCacheStrategy cacheStrategy=null)
         {
             var cacheKey = typeof (T).ToString();
             if (cacheStrategy != null)

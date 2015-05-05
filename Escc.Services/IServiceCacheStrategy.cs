@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Escc.Services
 {
     /// <summary>
-    /// A method of caching services created by <see cref="ServiceLocator" />
+    /// A method of caching services created by <see cref="ServiceContainer" />
     /// </summary>
     public interface IServiceCacheStrategy
     {

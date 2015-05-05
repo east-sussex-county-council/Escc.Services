@@ -45,7 +45,7 @@
     <Compile Include="HttpContextCacheStrategy.cs" />
     <Compile Include="IServiceCacheStrategy.cs" />
     <Compile Include="IServiceRegistry.cs" />
-    <Compile Include="ServiceLocator.cs" />
+    <Compile Include="ServiceContainer.cs" />
     <Compile Include="SmtpEmailSender.cs" />
     <Compile Include="IEmailSender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
