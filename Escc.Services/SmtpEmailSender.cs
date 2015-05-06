@@ -1,4 +1,6 @@
-﻿using System.Net.Mail;
+﻿using System;
+using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace Escc.Services
 {
@@ -16,6 +18,18 @@ namespace Escc.Services
             using (var smtp = new SmtpClient())
             {
                 smtp.Send(message);
+            }
+        }
+
+        /// <summary>
+        /// Sends the specified email asynchronously.
+        /// </summary>
+        /// <param name="message">The email.</param>
+        public async Task SendAsync(MailMessage message)
+        {
+            using (var smtp = new SmtpClient())
+            {
+                await smtp.SendMailAsync(message);
             }
         }
     }

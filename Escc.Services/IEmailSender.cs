@@ -1,4 +1,5 @@
 ﻿using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace Escc.Services
 {
@@ -12,5 +13,11 @@ namespace Escc.Services
         /// </summary>
         /// <param name="message">The email.</param>
         void Send(MailMessage message);
+
+        /// <summary>
+        /// Sends the specified email asynchronously.
+        /// </summary>
+        /// <param name="message">The email.</param>
+        Task SendAsync(MailMessage message);
     }
 }
