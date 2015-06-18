@@ -29,6 +29,7 @@ namespace Escc.Services
         {
             using (var smtp = new SmtpClient())
             {
+                smtp.SendCompleted += (sender, args) => message.Dispose();
                 await smtp.SendMailAsync(message);
             }
         }
