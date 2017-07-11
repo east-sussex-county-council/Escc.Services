@@ -16,7 +16,7 @@ In this example configuration settings come from web.config or app.config, but t
 	var configuration = new ConfigurationServiceRegistry();
 	var cache = new HttpContextCacheStrategy();
 
-	var emailService = ServiceContainer.LoadService<IEmailService>(configuration, cache);
+	var emailService = ServiceContainer.LoadService<IEmailSender>(configuration, cache);
 
     emailService.Send(email); 
 
