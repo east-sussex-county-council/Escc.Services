@@ -1,12 +1,8 @@
-Escc.Services
-=============
+# Escc.Services
 
 A service container and basic implementations of common services used by applications, such as email. 
 
-A [NuBuild](https://github.com/bspell1/NuBuild) project is used to create the NuGet package.
-
-Email
------
+## Email
 
 **C#** 
 
